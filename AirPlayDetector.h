@@ -1,9 +1,7 @@
 //
 //  AirPlayDetector.h
-//  VEVO HD
 //
 //  Created by Steve Potter on 5/11/12.
-//  Copyright (c) 2012 VEVO. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
