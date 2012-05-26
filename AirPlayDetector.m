@@ -35,6 +35,8 @@ NSString *AirPlayAvailabilityChanged = @"AirPlayAvailabilityChanged";
     //here is the real trick.  place an MPVolumeView in the window and monitor for changes in the airplay button's alpha property.  note that this depends on the MPVolumeView's view hierarchy so it must be tested for each iOS release
     //this was made possible by the awesome sample from http://stackoverflow.com/questions/5388884/airplay-button-on-custom-view-problems
     
+	isAirPlayAvailable = FALSE;
+	
     volumeButton = [[MPVolumeView alloc] initWithFrame:CGRectMake(-1000,-1000,100,100)];
     volumeButton.showsVolumeSlider = NO;
     volumeButton.showsRouteButton = YES;
@@ -42,7 +44,6 @@ NSString *AirPlayAvailabilityChanged = @"AirPlayAvailabilityChanged";
     for (UIView *view in volumeButton.subviews) {
         if ([view isKindOfClass:[UIButton class]]) {
             airplayButton = [view retain];
-            isAirPlayAvailable = view.alpha == 1;//it was always 1 in testing but why not, right?
             [airplayButton addObserver:self forKeyPath:@"alpha" options:NSKeyValueObservingOptionNew context:nil];
         }
     }
