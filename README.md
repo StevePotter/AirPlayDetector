@@ -1,6 +1,7 @@
-AirPlayDetector
+(ARC) AirPlayDetector
 ===============
 
+*This a ARC compliant fork of https://github.com/StevePotter/AirPlayDetector*
 
 Does the job of detecting whether this device can connect to an Apple TV or whatever using AirPlay.  It uses a hack with MPVolumeButton to overcome the fact that the framework has no properties or events for this information, which seems pretty silly to me.  
  
