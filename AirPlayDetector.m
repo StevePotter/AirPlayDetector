@@ -43,7 +43,7 @@ NSString *AirPlayAvailabilityChanged = @"AirPlayAvailabilityChanged";
     [window addSubview:volumeButton];//if you don't add to a window, nothing will ever happen
     for (UIView *view in volumeButton.subviews) {
         if ([view isKindOfClass:[UIButton class]]) {
-            airplayButton = [view retain];
+            airplayButton = (UIButton *)view;
             [airplayButton addObserver:self forKeyPath:@"alpha" options:NSKeyValueObservingOptionNew context:nil];
         }
     }
@@ -63,9 +63,6 @@ NSString *AirPlayAvailabilityChanged = @"AirPlayAvailabilityChanged";
 - (void)dealloc
 {
     [airplayButton removeObserver:self forKeyPath:@"alpha"];
-    [airplayButton release];
-    [volumeButton release];
-    [super dealloc];
 }
 
 @end
